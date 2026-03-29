@@ -1,3 +1,6 @@
+package main;
+
+import db.DBConnection;
 import java.sql.*;
 
 public class MainApp {
