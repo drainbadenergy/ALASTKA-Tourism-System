@@ -1,6 +1,7 @@
 package main;
 
 import db.DBConnection;
+import model.User;
 import java.sql.*;
 
 public class MainApp {
@@ -100,5 +101,7 @@ public class MainApp {
         } catch (SQLException e) {
             System.out.println("Error closing connection.");
         }
+        User u = new User("Harman");
+        u.showDetails();
     }
 }
