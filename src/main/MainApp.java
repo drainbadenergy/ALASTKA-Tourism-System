@@ -101,6 +101,7 @@ public class MainApp {
         } catch (SQLException e) {
             System.out.println("Error closing connection.");
         }
+
         User u = new User("Harman");
         u.showDetails();
     }
