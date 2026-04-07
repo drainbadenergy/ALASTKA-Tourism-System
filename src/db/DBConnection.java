@@ -6,23 +6,23 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL  = "jdbc:mysql://localhost:3306/ALASTKA" +
-            "?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USER = "harman";
-    private static final String PASS = "Helsinki@6024";
-
     public static Connection getConnection() {
+        Connection con = null;
+
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // explicit driver load
-            Connection con = DriverManager.getConnection(URL, USER, PASS);
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/ALASTKA",
+                    "harman",
+                    "Helsinki@6024"
+            );
+
             System.out.println("Connected to database!");
-            return con;
-        } catch (ClassNotFoundException e) {
-            System.out.println("Driver not found: " + e.getMessage());
+
         } catch (SQLException e) {
-            System.out.println("Connection failed: " + e.getMessage());
-            e.printStackTrace(); // shows exact reason
+            System.out.println("Connection failed!");
+            e.printStackTrace();
         }
-        return null;
+
+        return con;
     }
 }
